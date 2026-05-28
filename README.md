@@ -52,3 +52,20 @@ Trong bối cảnh mã QR đang được sử dụng tràn lan như hiện nay, 
 * **Text-to-Speech (TTS):** Sử dụng Engine giọng nói mặc định của hệ điều hành để tối ưu hiệu năng và xử lý offline.
 * **Local Database:** Sử dụng `SQLite` / `Room Database` (Android) hoặc `Sqflite` / `Hive` (Flutter) để lưu trữ bền vững dữ liệu lịch sử quét tại Màn hình 3.
 
+## Cài đặt và triển khai app
+
+Truy cập https://appinventor.mit.edu/
+<img width="959" height="427" alt="image" src="https://github.com/user-attachments/assets/5e7de1b0-d2ee-4ba0-9658-57e3eda7ddc7" />
+
+<img width="1919" height="948" alt="image" src="https://github.com/user-attachments/assets/64d9d2c6-9e5c-4828-b4ce-761cdc1185fb" />
+
+<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/bbb78be4-ea7b-4c2a-9b7a-173f5f2997a8" />
+
+Sau đó, ta thực hiện thiết kế UI
+
+<img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/c435d5ff-5206-4ea9-8b8f-e8a686c565e2" />
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/bb39513e-5894-40e7-81d7-d74a70f788ad" />
+
+<img width="1919" height="991" alt="image" src="https://github.com/user-attachments/assets/ef292405-6cd1-4aeb-a2ee-fea8464fc29c" />
+
