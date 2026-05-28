@@ -10,3 +10,45 @@ Có 3 màn hình
 
 # BÀI LÀM
 
+## TÊN ĐỀ TÀI: QR Shield Assistant
+**Ứng dụng Hỗ trợ Quét Mã QR An Toàn và Quản Lý Nhật Ký Truy Cập**
+
+### 1. Bối cảnh và Mục tiêu đề tài
+Trong bối cảnh mã QR đang được sử dụng tràn lan như hiện nay, các hình thức tấn công mạng thông qua mã QR độc hại (QR Phishing) ngày càng tinh vi. Ứng dụng **QR Shield Assistant** được xây dựng nhằm giúp người dùng chủ động phòng tránh các hiểm họa bảo mật. 
+
+Ứng dụng sẽ thực hiện quét, phân tích độ tin cậy của đường liên kết (URL) ẩn sau mã QR, đưa ra cảnh báo trực quan trước khi truy cập và tự động lưu trữ nhật ký quét để người dùng dễ dàng quản lý.
+
+---
+
+### 2. Kiến trúc và Mô tả chi tiết 3 Màn hình chức năng
+
+#### 📱 Màn hình 1: Màn hình chính (Home / Dashboard)
+* **Nội dung hiển thị:**
+  * Thông tin sinh viên thực hiện và bản quyền ứng dụng.
+  * Giao diện chào mừng trực quan, thân thiện với người dùng.
+* **Chức năng chính:** 
+  * Cung cấp các nút điều hướng (hoặc menu) để chuyển hướng nhanh sang **Màn hình 2** (Bắt đầu quét mã) và **Màn hình 3** (Xem lịch sử bảo mật).
+
+#### 📱 Màn hình 2: Quét Mã & Phân Tích Cảnh Báo Bảo Mật
+* **Luồng hoạt động:** Người dùng kích hoạt camera để quét mã QR chứa đường dẫn URL. Hệ thống tiến hành bóc tách dữ liệu và đối chiếu thực hiện phân loại bảo mật.
+* **Xử lý logic & Giao diện ứng xử:**
+  * **Trường hợp URL An toàn:** Giao diện hiển thị nhãn xanh (**Safe**). Kích hoạt (`enable`) nút "Truy cập ngay" để mở trình duyệt trực tiếp.
+  * **Trường hợp URL Nghi ngờ/Độc hại:** Giao diện chuyển sang tông màu đỏ cảnh báo nguy hiểm. Nút truy cập nhanh bị vô hiệu hóa (`disable`). Hệ thống hiển thị một nút chờ với dòng chữ **"Tôi biết rủi ro, Vẫn tiếp tục truy cập"** nhằm buộc người dùng phải xác nhận trước khi mở liên kết.
+* **Tích hợp thư viện nâng cao:** Sử dụng thư viện **Text-to-Speech (TTS)** để phát âm thanh cảnh báo bằng giọng nói (Ví dụ: *"Cảnh báo: Liên kết này có dấu hiệu lừa đảo, hãy cẩn trọng"*).
+
+#### 📱 Màn hình 3: Nhật Ký & Lịch Sử Bảo Mật (Security Log)
+* **Nội dung hiển thị:** Danh sách (`ListView`) toàn bộ các mã QR đã từng quét, được sắp xếp theo thứ tự thời gian mới nhất lên đầu.
+* **Chi tiết cấu trúc mỗi dòng log (Item):**
+  * **Tiêu đề liên kết:** Tên miền hoặc tiêu đề ước lượng của link.
+  * **Đường dẫn URL chi tiết.**
+  * **Trạng thái bảo mật:** Hiển thị trực quan bằng màu sắc/icon (An toàn hoặc Nguy hiểm).
+  * **Thời gian chi tiết:** Ngày, giờ cụ thể khi thực hiện hành vi quét (Định dạng: `HH:mm - DD/MM/YYYY`).
+* **Chức năng phụ:** Hỗ trợ tính năng xóa lịch sử hoặc bấm vào từng log để xem lại chi tiết.
+
+---
+
+### 3. Các công nghệ và Thư viện dự kiến sử dụng
+* **QR Scanner Library:** Tích hợp camera quét mã QR thời gian thực (ví dụ: `ZXing` cho Android hoặc `mobile_scanner` cho Flutter).
+* **Text-to-Speech (TTS):** Sử dụng Engine giọng nói mặc định của hệ điều hành để tối ưu hiệu năng và xử lý offline.
+* **Local Database:** Sử dụng `SQLite` / `Room Database` (Android) hoặc `Sqflite` / `Hive` (Flutter) để lưu trữ bền vững dữ liệu lịch sử quét tại Màn hình 3.
+
